@@ -28,8 +28,7 @@
 
         <label for="psw-repeat"><b>Repeat Password</b></label>
         <label style="color: red">
-            <?php echo $errors['passwordRep']??"";?>
-<!--        --><?php //echo isset($errors['passwordRep']) ? print_r($errors['passwordRep'], true) : ''; ?><!-- <hr>-->
+            <?php echo isset($errors['psw-repeat']) ? print_r($errors['psw-repeat'], true) : ''; ?>
         </label>
         <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
 
