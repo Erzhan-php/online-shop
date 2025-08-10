@@ -53,7 +53,7 @@ if(empty(validation($_POST))) {
 //                header('Location: /catalog.php');
 
 
-            header('Location: /catalog.php');
+            header('Location: /catalog');
         } else {
             $errors['username'] = 'Username или Password указан не верно';
         }

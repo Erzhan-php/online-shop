@@ -1,11 +1,11 @@
 <?php
+session_start();
 
-function validateLoginForm(array $methodPost) : array
+function validateImput(array $data): array
 {
-    $errors = [];
-
-    if (isset($methodPost['name'])) {
-        $name = $methodPost['name'];
+    $errors=[];
+    if (isset($data['name'])) {
+        $name = $data['name'];
 
         if (empty($name)) {
             $errors['name'] = 'заполните поле name';
@@ -14,13 +14,10 @@ function validateLoginForm(array $methodPost) : array
             //  } elseif {//вот здесь нету условия, поэтому ошибка выходит
             //     $errors['name'] = 'значение name должно существовать';
         }
-
-    } else {
-        $errors['name'] = 'Поле Name не должно быть пустым';
     }
 
-    if (isset($methodPost['email'])) {
-        $email = $methodPost['email'];
+    if (isset($data['email'])) {
+        $email = $data['email'];
 
         if (empty($email)) {
             $errors['email'] = 'заполните поле email';
@@ -71,44 +68,28 @@ function validateLoginForm(array $methodPost) : array
     return $errors;
 }
 
-$errors = validateLoginForm($_POST);
+if (!isset($_SESSION['userId']))
+    {
+        header('Location: login.php');
+    }
 
-if(empty($errors)) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['psw'];
-    $passwordRep = $_POST['psw-repeat'];
-
-    $pdo = new PDO("pgsql:host=postgres; port=5432; dbname=mydb", 'USER', 'pass');
-    $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
-
-    $hash = password_hash($password, PASSWORD_DEFAULT);;
-
-    $stmt->execute(['name' => $name, 'email' => $email, 'password' => $hash]);
-
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-    $stmt->execute(['email' => $email]);
-    print_r($stmt->fetch());
-    echo 'Добро пожаловать';
-}
-require_once './registration/get_registration.php';
-?>
+$errors = [];
+$errors = validateImput($_POST);
+if (empty($errors))
+    {
+        $pdo = new PDO("pgsql:host=postgres; port=5432; dbname=mydb", 'USER', 'pass');
+        $psw = password_hash($_POST['psw'], PASSWORD_DEFAULT);;
+        $stmt = $pdo->prepare("UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id");
+        // Выполняем запрос, передавая параметры
+        $stmt->execute([
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'password' => $psw,
+            'id' => $_SESSION['userId']
+        ]);
+    }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+require_once './get_edit_profile.php';

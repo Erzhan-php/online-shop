@@ -1,25 +1,42 @@
-<form action="add_product" method="POST">
+<form action="handle_edit_profile.php" method="POST">
     <div class="container">
-        <h1>Add product</h1>
+        <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for="product_id"><b>Product-id</b></label>
+        <label for="name"><b>Name</b></label>
         <label style="color: red">
-        <?php echo isset($errors['product_id']) ? print_r($errors['product_id'], true) : ''; ?>
+            <?php echo isset($errors['name']) ? print_r($errors['name'], true) : ''; ?>
         </label>
 
-        <input type="text" placeholder="Enter product_id" name="product_id" id="product_id" required>
+        <input type="text" placeholder="Enter Name" name="name" id="name" required value="<?php echo htmlspecialchars($user['name'] ?? ''); ?>"
+        >
 
-        <label for="amount"><b>Amount</b></label>
+        <label for="email"><b>Email</b></label>
         <label style="color: red">
-        <?php echo isset($errors['amount']) ? print_r($errors['amount'], true) : ''; ?>
+            <?php echo isset($errors['email']) ? print_r($errors['email'], true) : ''; ?>
         </label>
 
-        <input type="text" placeholder="Enter amount" name="amount" id="amount" required>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+
+        <label for="psw"><b>Password</b></label>
+        <label style="color: red">
+            <?php echo isset($errors['Password']) ? print_r($errors['Password'], true) : '';?>
+        </label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <label style="color: red">
+            <?php echo isset($errors['psw-repeat']) ? print_r($errors['psw-repeat'], true) : ''; ?>
+        </label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+
 
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-        <button type="submit" class="registerbtn">Add product</button>
+        <button type="submit" class="registerbtn">Save</button>
+        //здесь нужно добавить переход на обновленную страницу профиля
     </div>
 
     <div class="container signin">
@@ -82,4 +99,4 @@
         background-color: #f1f1f1;
         text-align: center;
     }
-</style>
+</style><?php

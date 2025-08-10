@@ -1,7 +1,7 @@
 <div class="container">
     <h3>Catalog</h3>
 
-    <form action="handle_profile.php" method="post">
+    <form action="./profile/handle_profile" method="post">
         <button type="submit">Мой профиль</button>
     </form>
 
@@ -9,7 +9,7 @@
     <button type="button">Корзина</button>
     </form>
 
-    <form action="handle_add_product.php" method="post">
+    <form action="../addProduct/handle_add_product.php" method="post">
     <button type="button"> Добавить продукты</button>
     </form>
 
