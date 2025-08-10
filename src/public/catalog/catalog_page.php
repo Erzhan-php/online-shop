@@ -1,5 +1,18 @@
 <div class="container">
     <h3>Catalog</h3>
+
+    <form action="handle_profile.php" method="post">
+        <button type="submit">Мой профиль</button>
+    </form>
+
+    <form action="handle_basket.php" method="post">
+    <button type="button">Корзина</button>
+    </form>
+
+    <form action="handle_add_product.php" method="post">
+    <button type="button"> Добавить продукты</button>
+    </form>
+
     <div class="card-deck">
         <?php foreach ($products as $products): ?>
             <div class="card text-center">

@@ -1,6 +1,9 @@
 <?php
-
-if (!isset($_COOKIE['user_id'])) {
+//if (!isset($_COOKIE['user_id'])) {
+//    header('Location: /get_login.php');
+//}
+session_start();
+if (!isset($_SESSION['userId'])) {
     header('Location: /get_login.php');
 }
 
