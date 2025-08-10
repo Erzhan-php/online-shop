@@ -1,15 +1,15 @@
-<form action="add_product" method="POST">
+<form action="add-product" method="POST">
     <div class="container">
         <h1>Add product</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for="product_id"><b>Product-id</b></label>
+        <label for="product-id"><b>Product-id</b></label>
         <label style="color: red">
-        <?php echo isset($errors['product_id']) ? print_r($errors['product_id'], true) : ''; ?>
+        <?php echo isset($errors['product-id']) ? print_r($errors['product-id'], true) : ''; ?>
         </label>
 
-        <input type="text" placeholder="Enter product_id" name="product_id" id="product_id" required>
+        <input type="text" placeholder="Enter product-id" name="product_id" id="product_id" required>
 
         <label for="amount"><b>Amount</b></label>
         <label style="color: red">

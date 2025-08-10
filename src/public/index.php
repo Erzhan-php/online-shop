@@ -36,7 +36,7 @@ if ($requestURi === '/registration') {
     } elseif ($requestMethod === 'POST') {
         require_once './handle_edit_profile.php';
     }
-} elseif ($requestURi === '/add_product') {
+} elseif ($requestURi === '/add-product') {
     if ($requestMethod === 'GET') {
         require_once './addProduct/add_product_form.php';
     } elseif ($requestMethod === 'POST') {
