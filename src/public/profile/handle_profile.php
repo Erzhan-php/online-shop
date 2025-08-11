@@ -9,14 +9,14 @@ if (isset($_SESSION['userId']))
 
     if ($user) {
         // Если пользователь найден, подключаем профиль
-        require_once './profile/get_profile.php';
+        require_once 'get_profile.php';
             } else {
         // Если пользователь не найден
         echo "Пользователь не найден.";
             }
 } else {
     // Если сессия не установлена — редирект на вход
-    header('Location: /get_login.php');
+    header('Location: login/get_login.php');
     exit();
 }
 ?>

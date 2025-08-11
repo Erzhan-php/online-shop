@@ -14,9 +14,9 @@ if ($requestURi === '/registration') {
 
 } elseif ($requestURi === '/catalog') {
     if ($requestMethod === 'GET') {
-        require_once './catalog/catalog_page.php';
-    } elseif ($requestMethod === 'POST') {
         require_once './catalog/catalog.php';
+    } elseif ($requestMethod === 'POST') {
+        require_once './catalog/catalog_page.php';
     }
 } elseif ($requestURi === '/login') {
     if ($requestMethod === 'GET') {
@@ -26,9 +26,9 @@ if ($requestURi === '/registration') {
     }
 } elseif ($requestURi === '/profile') {
     if ($requestMethod === 'GET') {
-        require_once './profile/get_profile.php';
-    } elseif ($requestMethod === 'POST') {
         require_once './profile/handle_profile.php';
+    } elseif ($requestMethod === 'POST') {
+        require_once './editProfile/handle_edit_profile.php';
     }
 } elseif ($requestURi === '/edit_profile') {
     if ($requestMethod === 'GET') {

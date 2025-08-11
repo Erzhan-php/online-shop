@@ -12,6 +12,6 @@ $stmt = $pdo->query('SELECT * FROM products');
 $products = $stmt->fetchAll();
 
 
-require_once './catalog/catalog_page';
+require_once './catalog/catalog_page.php';
 ?>
 
